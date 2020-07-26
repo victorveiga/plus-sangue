@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from core import urls as core_urls
 from doadores import urls as doadores_urls
 
 urlpatterns = [
+    path('', include(core_urls)),
     path('doadores/', include(doadores_urls)),
     path('admin/', admin.site.urls),
 ]

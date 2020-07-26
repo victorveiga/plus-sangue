@@ -1,3 +1,13 @@
+.ps-geral-lista li {
+    cursor: pointer;
+    transition: 0.5s background-color;
+}
+
+.ps-geral-lista li:hover {
+    background-color: #dc143c;
+    color: white;
+}
+
 #helloteste {
     color: #ff0000;
 }

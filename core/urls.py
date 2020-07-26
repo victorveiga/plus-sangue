@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import helloworld
+from .views import home
 
 urlpatterns = [
-    path('', helloworld, name='doadores')
+    path('', home, name='home')
 ]
