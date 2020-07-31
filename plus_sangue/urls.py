@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.views import LoginView
+from .views import logout_now
 
 from core import urls as core_urls
 from doadores import urls as doadores_urls
@@ -22,5 +24,7 @@ from doadores import urls as doadores_urls
 urlpatterns = [
     path('', include(core_urls)),
     path('doadores/', include(doadores_urls)),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', logout_now, name='logout'),
     path('admin/', admin.site.urls),
 ]

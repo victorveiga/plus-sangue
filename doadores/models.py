@@ -5,7 +5,7 @@ class Doador(models.Model):
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
     tipo_sanguineo = models.CharField(max_length=2)
-    fator_rh = models.BooleanField()
+    fator_rh = models.BooleanField(null=True, blank=True)
 
     def __str__(self):
         return self.nome + ' - ' + self.sobrenome

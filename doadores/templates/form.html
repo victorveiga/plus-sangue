@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <link rel="stylesheet" href="{% static "css/doadores.css" %}">
+
+    <div id="doadores-form">
+        <h3 class="mb-3 display-4">Mais um grande Herói</h3>
+        <p class="lead" style="margin-top: 5%;">
+            Todas as informações requeridas abaixo ficará entre nós. Nenhuma informação será compartilhada sem o seu concentimento.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+
+            <div id="botoes-down">
+                <button class="btn btn-dark ml-2" type="button" onclick="goTo('{% url 'doadores' %}')">Voltar para casa</button>
+                <button class="btn btn-danger ml-2" type="submit">Gravar Inscrição</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
