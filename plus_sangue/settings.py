@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',
     'core',
-    'doadores'
+    'doadores',
+    'hemonucleos'
 ]
 
 MIDDLEWARE = [

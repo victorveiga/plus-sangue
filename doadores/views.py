@@ -7,7 +7,7 @@ from .forms import DoadorForm
 @login_required
 def store(request):
     doadores = Doador.objects.all()
-    return render(request, 'list.html', {'doadores': doadores})
+    return render(request, 'doadores_list.html', {'doadores': doadores})
 
 @login_required
 def create(request):
@@ -17,7 +17,7 @@ def create(request):
         form.save()
         return redirect('doadores')    
 
-    return render(request, 'form.html', {'form': form})  
+    return render(request, 'doadores_form.html', {'form': form})  
 
 @login_required
 def update(request, id):
@@ -28,4 +28,4 @@ def update(request, id):
         form.save()
         return redirect('doadores')    
 
-    return render(request, 'form.html', {'form': form})       
+    return render(request, 'doadores_form.html', {'form': form})       

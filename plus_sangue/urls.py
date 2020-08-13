@@ -20,10 +20,12 @@ from .views import logout_now
 
 from core import urls as core_urls
 from doadores import urls as doadores_urls
+from hemonucleos import urls as hemonucleos_urls
 
 urlpatterns = [
     path('', include(core_urls)),
     path('doadores/', include(doadores_urls)),
+    path('hemonucleos/', include(hemonucleos_urls)),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout_now, name='logout'),
     path('admin/', admin.site.urls),

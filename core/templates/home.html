@@ -6,11 +6,31 @@
 
     <div class="row">
         <div class="col-md-6">
+            <!--
             <ul class="list-group ps-geral-lista">
-                <li class="list-group-item" onclick="goTo('{% url 'doadores' %}')">Doadores</li>
-                <li class="list-group-item">Hemonúcleos</li>
-                <li class="list-group-item">Administradores</li>
+                <li class="list-group-item" >Doadores</li>
+                <li class="list-group-item" >Hemonúcleos</li>
             </ul>
+            -->
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="card border-danger principal-botao-menu" onclick="goTo('{% url 'doadores' %}')">
+                    <div class="card-header text-danger"><h5 class="card-title">Doadores</h5></div>
+                      <div class="card-body text-danger">
+                          <p class="card-text">Clique aqui e acesse a lista de doadores e gerencie suas informações agora.</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card border-primary principal-botao-menu" onclick="goTo('{% url 'hemonucleos' %}')">
+                    <div class="card-header text-primary"><h5 class="card-title">Hemocentros</h5></div>
+                    <div class="card-body text-primary">
+                      <p class="card-text">Clique aqui e acesse a lista de Hemocentros e gerencie suas informações agora.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
         </div>
         <div class="col-md-6">
             <img src="{% static 'img/blood.png' %}" alt="blood-pressure" width="100%">
