@@ -16,8 +16,8 @@
                   A doação é uma das ações mais nobres que uma pessoa pode fazer em relação a outra. É um ato de demonstração de afeto, amor e, ainda, de maior dignidade a condição humana.
                 </p>
                 <div class="mt-4 mb-4">
-                  <button type="button" class="btn btn-outline-light" onclick="habilitarFormDoador()">Começar a doar</button>
-                  <button type="button" class="btn btn-outline-light" onclick="habilitarFormHemocentro()">Informar Hemocentro</button>           
+                  <a type="button" class="btn btn-outline-light" onclick="habilitarFormDoador()" href="#form-doador">Começar a doar</a>
+                  <a type="button" class="btn btn-outline-light" onclick="habilitarFormHemocentro()" href="#form-hemocentro">Informar Hemocentro</a>           
                 </div>
   
               </div>
@@ -29,35 +29,50 @@
         </div>
     </section>
 
-    <section id="form-doador">
+    <section id="form-doador" class="mt-4 mb-4">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 border p-4">
+            <h3 class="mb-3 display-4">Mais um grande Herói!</h3>
+            <p class="lead" style="margin-top: 5%;">
+                Todas as informações requeridas abaixo ficará entre nós. Nenhuma informação será compartilhada sem o seu concentimento.
+            </p>
+
             <form method="post">
               {% csrf_token %}
               {{ form_doador|bootstrap }}
   
               <div id="botoes-down">
-                  <button class="btn btn-dark ml-2" type="button" onclick="goTo('{% url 'doadores' %}')">Voltar para casa</button>
-                  <button class="btn btn-danger ml-2" type="submit">Gravar Inscrição</button>
+                  <button class="btn btn-success" type="submit" onclick="desabilitaFormularios()">Gravar minha inscrição</button>
               </div>
-          </form>
+            </form>
+          </div>
+          <div class="col-md-6">
+            
           </div>
         </div>
       </div>
     </section>
 
-    <section id="form-hemocentro">
+    <section id="form-hemocentro" class="mt-4 mb-4">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
+            
+          </div>
+          <div class="col-md-6 border p-4">
+
+            <h3 class="mb-3 display-4">Ual... Mais um Hemocentro!</h3>
+            <p class="lead" style="margin-top: 5%;">
+                Todas as informações requeridas abaixo são utilizadas para identificar os hemonúcleos e fazer a ponte entre os possíveis doadores.
+            </p>
+
             <form method="post">
               {% csrf_token %}
               {{ form_hemocentro|bootstrap }}
   
-              <div id="botoes-down">
-                  <button class="btn btn-dark ml-2" type="button" onclick="goTo('{% url 'hemonucleos' %}')">Voltar para casa</button>
-                  <button class="btn btn-danger ml-2" type="submit">Gravar Inscrição</button>
+              <div id="botoes-down">                  
+                  <button class="btn btn-success" type="submit" onclick="desabilitaFormularios()">Gravar Inscrição</button>
               </div>
             </form>
           </div>
@@ -87,9 +102,11 @@
       </div>
     </footer>
 
-    <script>
-      document.getElementById("form-doador").style.display = "none";
-      document.getElementById("form-hemocentro").style.display = "none";
+    <script>      
+      function desabilitaFormularios(params) {
+        document.getElementById("form-doador").style.display = "none";
+        document.getElementById("form-hemocentro").style.display = "none";
+      }
 
       function habilitarFormDoador(params) {
         document.getElementById("form-doador").style.display = "block";
@@ -98,6 +115,9 @@
       function habilitarFormHemocentro(params) {
         document.getElementById("form-hemocentro").style.display = "block";
       }
+
+      // Inicio
+      desabilitaFormularios();
     </script>
     
 {% endblock %}
