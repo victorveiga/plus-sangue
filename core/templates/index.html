@@ -38,12 +38,12 @@
                 Todas as informações requeridas abaixo ficará entre nós. Nenhuma informação será compartilhada sem o seu concentimento.
             </p>
 
-            <form method="post">
+            <form method="post" onsubmit="desabilitaFormularios()">
               {% csrf_token %}
               {{ form_doador|bootstrap }}
   
               <div id="botoes-down">
-                  <button class="btn btn-success" type="submit" onclick="desabilitaFormularios()">Gravar minha inscrição</button>
+                  <button class="btn btn-success" type="submit">Gravar minha inscrição</button>
               </div>
             </form>
           </div>
@@ -60,7 +60,7 @@
           <div class="col-md-6">
             
           </div>
-          <div class="col-md-6 border p-4">
+          <div class="col-md-6 border p-4" onsubmit="desabilitaFormularios()">
 
             <h3 class="mb-3 display-4">Ual... Mais um Hemocentro!</h3>
             <p class="lead" style="margin-top: 5%;">
@@ -72,7 +72,7 @@
               {{ form_hemocentro|bootstrap }}
   
               <div id="botoes-down">                  
-                  <button class="btn btn-success" type="submit" onclick="desabilitaFormularios()">Gravar Inscrição</button>
+                  <button class="btn btn-success" type="submit">Gravar Inscrição</button>
               </div>
             </form>
           </div>
@@ -103,7 +103,8 @@
     </footer>
 
     <script>      
-      function desabilitaFormularios(params) {
+      function desabilitaFormularios(e) {
+        console.log('aqui', e)
         document.getElementById("form-doador").style.display = "none";
         document.getElementById("form-hemocentro").style.display = "none";
       }
